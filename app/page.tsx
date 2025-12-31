@@ -16,6 +16,7 @@ export default function Page() {
   return (
     <main className="min-h-screen w-full flex items-center justify-center p-8 ">
       <FlipClockCountdownDemo />
+      <span className="loading loading-infinity loading-sm"></span>
     </main>
   );
 }

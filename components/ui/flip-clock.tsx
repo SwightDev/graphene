@@ -198,9 +198,13 @@ export function FlipClock({
   className,
   ...props
 }: FlipClockProps) {
-  const [time, setTime] = useState<TimeLeft>(getTime(countdown, targetDate));
+  const [time, setTime] = useState<TimeLeft>(() => getTime(countdown, targetDate));
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    setTime(getTime(countdown, targetDate));
+    
     const timer = setInterval(() => {
       const nextTime = getTime(countdown, targetDate);
       setTime((prev) => {
